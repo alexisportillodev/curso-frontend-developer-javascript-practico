@@ -15,10 +15,12 @@ productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-
+    
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive');
     }
+    
+    closeProductDetailAside();
 
     desktopMenu.classList.toggle('inactive');
 }
@@ -48,10 +50,17 @@ function toggleCarritoAside() {
         productDetailContainer.classList.add('inactive');
     }
 
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+
+    if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
 }
 
 function openProductDetailAside() {
+    desktopMenu.classList.add('inactive');
     shoppingCartContainer.classList.add('inactive');
     productDetailContainer.classList.remove('inactive');
 }
